@@ -7,11 +7,23 @@
     <a-scene>
         <a-assets>
             <img id="background" src="assets/2d360background.jpg"  alt="background image"/>
+            <a-asset-item id="motherboard" src="assets/motherboard.gltf"></a-asset-item>
+            <a-asset-item id="memory" src="assets/memory.gltf"></a-asset-item>
         </a-assets>
 
         <a-sphere  material="src: #background;side: back" scale="-25 25 25">
         </a-sphere>
+
+        <a-sphere position="0 2 0" material="side: double; color: black;" scale=".5 .5 .5">
+        </a-sphere>
+
+
         <a-entity position="0 0 0">
+            <a-entity position="0.5 0 -2.5" rotation="0 -10 0" >
+
+
+            </a-entity>
+
                 <a-entity position="0.5 0 -2.5" rotation="0 -10 0" scale="0.01 0.01 0.01">
 
                   <!--
@@ -24,29 +36,25 @@
                         <a-animation begin="click" attribute="rotation" to="0 90 0" dur="500" direction="alternate"></a-animation>
                     </a-box>
 
-                    <a-box id="motherboard" rotation="0 10 0" position="0 12.5 350" material="side: double; color: #4CFED9; transparent: true; opacity: 0.5" scale="305 25 244">
+                    <a-entity gltf-model="#motherboard" rotation="0 10 0" position="0 12.5 350" scale="100 100 100" >
                         <a-animation begin="click" attribute="position" to="-68 269 -77.5" dur="500" direction="alternate"></a-animation>
-                        <a-animation begin="click" attribute="rotation" to="90 0 0" dur="500" direction="alternate"></a-animation>
-                    </a-box>
+                        <a-animation begin="click" attribute="rotation" to="0 90 90" dur="500" direction="alternate"></a-animation>
+                    </a-entity>
 
-                    <a-box id="memory1" rotation="0 10 0" position="255 2.5 350" material="side: double; color: #EFFED9; transparent: true; opacity: 0.5" scale="142 5 22">
-                        <a-animation begin="click" attribute="position" to="-60 310 -55" dur="500" direction="alternate"></a-animation>
-                        <a-animation begin="click" attribute="rotation" to="0 0 90" dur="500" direction="alternate"></a-animation>
-                    </a-box>
+                    <a-entity gltf-model="assets/memory.gltf" rotation="0 75 90" position="428 0 -5.7" scale="50 50 50">
+                      <a-animation begin="click" attribute="position" to="35.81323388096163 416.70838235651576 -172.04020793594518" dur="500" direction="alternate"></a-animation>
+                      <a-animation begin="click" attribute="rotation" to="90 90 90" dur="500" direction="alternate"></a-animation>
+                  </a-entity>
 
-                    <a-box id="memory2" rotation="0 10 0" position="250 2.5 310" material="side: double; color: #EFFED9; transparent: true; opacity: 0.5" scale="142 5 22">
-                        <a-animation begin="click" attribute="position" to="-50 310 -55" dur="500" direction="alternate"></a-animation>
-                        <a-animation begin="click" attribute="rotation" to="0 0 90" dur="500" direction="alternate"></a-animation>
-                    </a-box>
-                    <a-box id="memory3" rotation="0 10 0" position="245 2.5 270" material="side: double; color: #EFFED9; transparent: true; opacity: 0.5" scale="142 5 22">
-                        <a-animation begin="click" attribute="position" to="-40 310 -55" dur="500" direction="alternate"></a-animation>
-                        <a-animation begin="click" attribute="rotation" to="0 0 90" dur="500" direction="alternate"></a-animation>
-                    </a-box>
+                  <a-entity gltf-model="assets/memory.gltf" rotation="0 86 90" position="405.08494337452277 0 91.77866037807787" scale="50 50 50">
+                    <a-animation begin="click" attribute="position" to="53.040 416.70838235651576 -172.04020793594518" dur="500" direction="alternate"></a-animation>
+                    <a-animation begin="click" attribute="rotation" to="90 90 90" dur="500" direction="alternate"></a-animation>
+                </a-entity>
 
-                    <a-box id="memory4" rotation="0 10 0" position="240 2.5 230" material="side: double; color: #EFFED9; transparent: true; opacity: 0.5" scale="142 5 22">
-                        <a-animation begin="click" attribute="position" to="-30 310 -55" dur="500" direction="alternate"></a-animation>
-                        <a-animation begin="click" attribute="rotation" to="0 0 90" dur="500" direction="alternate"></a-animation>
-                    </a-box>
+                <a-entity gltf-model="assets/memory.gltf" rotation="6.3611093629270335e-15 132.78414583232265 90" position="465.9282192317076 0 202.010156467569" scale="50 50 50">
+                  <a-animation begin="click" attribute="position" to="74.277 416.70838235651576 -172.04020793594518" dur="500" direction="alternate"></a-animation>
+                  <a-animation begin="click" attribute="rotation" to="90 90 90" dur="500" direction="alternate"></a-animation>
+              </a-entity>
 
                     <a-box id="cpu" rotation="0 10 0" position="250 2.5 425" material="side: double; color: #000000; transparent: true; opacity: 0.5" scale="38 5 38">
                         <a-animation begin="click" attribute="position" to="-127 330 -55" dur="500" direction="alternate"></a-animation>
