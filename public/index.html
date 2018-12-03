@@ -1,66 +1,81 @@
 <html>
-
 <head>
-  <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+  <script src="lib/aframe-draggable.js"></script>
+  <script src="lib/aframe-drop-target.js"></script>
 </head>
-
 <body>
-
   <a-scene>
     <a-assets>
       <img id="background" src="assets/2d360background.jpg" alt="background image" />
-      <a-asset-item id="motherboard" src="assets/motherboard.gltf"></a-asset-item>
-      <a-asset-item id="memory" src="assets/memory.gltf"></a-asset-item>
-      <a-asset-item id="cpu" src="assets/cpu.gltf"></a-asset-item>
-      <a-asset-item id="chassis" src="assets/chassis.gltf"></a-asset-item>
-      <a-asset-item id="chassis-panel" src="assets/chassis-panel.gltf"></a-asset-item>
-      <a-asset-item id="powerSupply" src="assets/powerSupply.gltf"></a-asset-item>
-      <a-asset-item id="hardDrive" src="assets/hardDrive.gltf"></a-asset-item>
+      <a-asset-item id="motherboard-model" src="assets/motherboard.gltf"></a-asset-item>
+      <a-asset-item id="memory-model" src="assets/memory.gltf"></a-asset-item>
+      <a-asset-item id="cpu-model" src="assets/cpu.gltf"></a-asset-item>
+      <a-asset-item id="chassis-model" src="assets/chassis.gltf"></a-asset-item>
+      <a-asset-item id="chassis-panel-model" src="assets/chassis-panel.gltf"></a-asset-item>
+      <a-asset-item id="powerSupply-model" src="assets/powerSupply.gltf"></a-asset-item>
+      <a-asset-item id="hardDrive-model" src="assets/hardDrive.gltf"></a-asset-item>
     </a-assets>
 
     <a-sphere material="src: #background;side: back" scale="-25 25 25">
     </a-sphere>
 
     <a-entity position="0.5 0.75 -2.5" rotation="0 -10 0" scale="0.005 0.005 0.005">
-        <a-entity gltf-model="#powerSupply" rotation="0 -55.68210738189998 0" position="-541.1971730467403 393.2935751387252 346.9377437964605" scale="100 100 100">
+
+      <a-entity id="chassisContainer" position="198.656 341.2948677915229 0" scale="100 100 100">
+        <a-entity gltf-model="#chassis-model"></a-entity>
+        <a-entity drop-target="accept: #powerSupplyContainer" position="-4.4717184134460775 3.0522657922264713 0"
+          rotation="0 180 0"></a-entity>
+        <a-entity drop-target="accept: #motherboardContainer" position="-1.2985199190926584 0.2582662069419772 -1.6688020066292555"
+          rotation="0 90 90"></a-entity>
+        <a-entity drop-target="accept: #hardDriveContainer" position="4.460394884243852 -0.158636421892842 0" rotation="0 180 0"></a-entity>
+        <a-entity drop-target="accept: .memory" position="4.460394884243852 -0.158636421892842 0" rotation="0 180 0"></a-entity>
+      </a-entity>
+
+      <a-entity id="powerSupplyContainer" rotation="0 -55.68210738189998 0" position="-482.1287879019982 -64.47411276255325 681.9312025820135"
+        scale="100 100 100" class="pc-component">
+        <a-entity gltf-model="#powerSupply-model" position="-2.4502458886053917 3.1257752648415487 -0.01332024941354587">
           <a-animation begin="click" attribute="position" to="-18.598 923.559 0" dur="500" direction="alternate"></a-animation>
           <a-animation begin="click" attribute="rotation" to="0 180 0" dur="500" direction="alternate"></a-animation>
         </a-entity>
+      </a-entity>
 
-      <a-entity gltf-model="#motherboard" rotation="0 10 0" position="0 12.5 550" scale="100 100 100">
+      <a-entity gltf-model="#motherboard-model" rotation="0 10 0" position="0 12.5 550" scale="100 100 100">
         <a-animation begin="click" attribute="position" to="-68 269 -77.5" dur="500" direction="alternate"></a-animation>
         <a-animation begin="click" attribute="rotation" to="0 90 90" dur="500" direction="alternate"></a-animation>
       </a-entity>
 
-      <a-entity gltf-model="#memory" rotation="0 75 90" position="428 0 395.7" scale="50 50 50">
-        <a-animation begin="click" attribute="position" to="35.81323388096163 416.70838235651576 -172.04020793594518" dur="500" direction="alternate"></a-animation>
+      <a-entity gltf-model="#memory-model" rotation="0 75 90" position="428 0 395.7" scale="50 50 50" class="memory">
+        <a-animation begin="click" attribute="position" to="35.81323388096163 416.70838235651576 -172.04020793594518"
+          dur="500" direction="alternate"></a-animation>
         <a-animation begin="click" attribute="rotation" to="90 90 90" dur="500" direction="alternate"></a-animation>
       </a-entity>
 
-      <a-entity gltf-model="#memory" rotation="0 86 90" position="405.08494337452277 0 291.77866037807787" scale="50 50 50">
+      <a-entity gltf-model="#memory-model" rotation="0 86 90" position="405.08494337452277 0 291.77866037807787" scale="50 50 50"
+        class="memory">
         <a-animation begin="click" attribute="position" to="53.040 416.70838235651576 -172.04020793594518" dur="500"
           direction="alternate"></a-animation>
         <a-animation begin="click" attribute="rotation" to="90 90 90" dur="500" direction="alternate"></a-animation>
       </a-entity>
 
-      <a-entity gltf-model="#memory" rotation="0 132.78414583232265 90" position="565.9282192317076 0 402.010156467569" scale="50 50 50">
+      <a-entity gltf-model="#memory-model" rotation="0 132.78414583232265 90" position="565.9282192317076 0 402.010156467569"
+        scale="50 50 50" class="memory">
         <a-animation begin="click" attribute="position" to="74.277 416.70838235651576 -172.04020793594518" dur="500"
           direction="alternate"></a-animation>
         <a-animation begin="click" attribute="rotation" to="90 90 90" dur="500" direction="alternate"></a-animation>
       </a-entity>
 
-      <a-entity gltf-model="#cpu" rotation="90 10 0" position="358.57044624385765 2.5 605.8561010196499" scale="50 50 50">
+      <a-entity gltf-model="#cpu-model" rotation="90 10 0" position="358.57044624385765 2.5 605.8561010196499" scale="50 50 50">
         <a-animation begin="click" attribute="position" to="-83.020 446.419 -67.427" dur="500" direction="alternate"></a-animation>
         <a-animation begin="click" attribute="rotation" to="0 180 0" dur="500" direction="alternate"></a-animation>
       </a-entity>
 
-      <a-entity gltf-model="#hardDrive" rotation="0 115 0" position="-674.622 -627.124 -354.907" scale="100 100 100">
+      <a-entity gltf-model="#hardDrive-model" rotation="0 115 0" position="-674.622 -627.124 -354.907" scale="100 100 100">
         <a-animation begin="click" attribute="position" to="1902.625 -278.662 192.089" dur="500" direction="alternate"></a-animation>
         <a-animation begin="click" attribute="rotation" to="0 -8.665 0" dur="500" direction="alternate"></a-animation>
       </a-entity>
 
-      <a-entity gltf-model="#chassis" position="198.656 341.2948677915229 0" scale="100 100 100">
-      </a-entity>
+
     </a-entity>
     <a-plane rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
     <a-sky color="black"></a-sky>
